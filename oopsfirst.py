@@ -42,3 +42,69 @@ print(Employee.__dict__)
 # '__weakref__': <attribute '__weakref__' of 'Employee' objects>, 
 # '__doc__': None}
 print(Employee.num_of_employees)  # Output: 2
+class developer(Employee):
+	def __init__(self, name, age, pay, employees=None):
+		super().__init__(name, age, pay)
+		self.employees = [] if employees is None else list(employees)
+
+	def add_employee(self, employee):
+		if employee not in self.employees:
+			self.employees.append(employee)
+
+	def add_emp(self, emp):
+		self.add_employee(emp)
+
+	def remove_employee(self, employee):
+		if employee in self.employees:
+			self.employees.remove(employee)
+
+	def remove_emp(self, emp):
+		self.remove_employee(emp)
+
+	def print_employees(self):
+		for emp in self.employees:
+			print('-->', emp.fullname())
+
+	def print_emp(self):
+		self.print_employees()
+
+
+dev_1 = developer('kush', 28, 70000)
+dev_1.add_emp(employee_2)
+print(dev_1.email)
+
+
+class manager(Employee):
+	def __init__(self, name, age, pay, employees=None):
+		super().__init__(name, age, pay)
+		self.employees = [] if employees is None else list(employees)
+
+	def add_employee(self, employee):
+		if employee not in self.employees:
+			self.employees.append(employee)
+
+	def add_emp(self, emp):
+		self.add_employee(emp)
+
+	def remove_employee(self, employee):
+		if employee in self.employees:
+			self.employees.remove(employee)
+
+	def remove_emp(self, emp):
+		self.remove_employee(emp)
+
+	def print_employees(self):
+		for emp in self.employees:
+			print('-->', emp.fullname())
+
+	def print_emp(self):
+		self.print_employees()
+
+
+mgr_1 = manager('Ayush', 35, 90000, [employee_1])
+print(mgr_1.email)
+mgr_1.print_emp()
+print('this was the old after it new data will be enetered')
+mgr_1.add_emp(employee_2)
+mgr_1.print_emp()
+
